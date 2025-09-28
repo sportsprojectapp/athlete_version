@@ -33,7 +33,6 @@ lang_dict = {
         "motivated": "💪 You are motivated!",
         "keep_pushing": "Keep pushing! You can do it 💪",
         "answer_first": "Answer the questions first!",
-        # Sport names
         "Sprinting":"Sprinting",
         "Long Jump":"Long Jump",
         "High Jump":"High Jump",
@@ -79,7 +78,7 @@ lang_dict = {
         "Relay Race":"रिले दौड़",
         "Pole Vault":"पोल वॉल्ट",
         "Marathon":"मैराथन"
-    },
+    }
     # TODO: Add Marathi, Telugu, Tamil, Kannada, Malayalam, Tulu translations here
 }
 
@@ -106,38 +105,8 @@ st.markdown(f"""
     display: flex;
     align-items: center;
     color: white;
-    font-size: 20px;
-    height: 150px;
-}}
-.sport-image {{
-    height: 130px;
-    width: 130px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-right: 15px;
-}}
-</style>
-""", unsafe_allow_html=True)
+    font-size: 20px
 
-# -------------------------------
-# Sample Athlete Data
-# -------------------------------
-sports_data = [
-    {"sport": "Sprinting", "score": 88, "highest": 95, "attempts": 5,
-     "last_feedback":"Knee posture needs improvement",
-     "color": "#FF5733",
-     "image":"https://i.ibb.co/2P4Z5yT/sprint.jpg",
-     "rules":["Keep camera stable","Record full body","Wear proper shoes"]},
-    {"sport": "Long Jump", "score": 82, "highest": 90, "attempts": 4,
-     "last_feedback":"Landing posture incorrect",
-     "color": "#33C1FF",
-     "image":"https://i.ibb.co/Thm7T2T/longjump.jpg",
-     "rules":["Ensure clear background","Record side view","Warm-up properly"]},
-    {"sport": "High Jump", "score": 90, "highest": 95, "attempts": 6,
-     "last_feedback":"Arms not straight during jump",
-     "color": "#33FF57",
-     "image":"https://i.ibb.co/fQ9R8Lx/highjump.jpg",
-     "rules":["Full ju]()
 
 
 
