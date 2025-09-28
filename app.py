@@ -146,7 +146,7 @@ sports_data = [
 st.markdown(f"<h1 style='color:{text_color}'>{t['dashboard_title']}</h1>", unsafe_allow_html=True)
 profile_col1, profile_col2 = st.columns([1,3])
 with profile_col1:
-    st.image(f"https://raw.githubusercontent.com/<username>/<repo>/main/athlete.jpg", width=120)
+    st.image(f"https://raw.githubusercontent.com/sportsprojectapp/athlete_version/main/athlete.jpg", width=120)
 with profile_col2:
     st.markdown(f"**{t['profile_name']}:** Athlete 1")
     st.markdown(f"**{t['profile_age']}:** 20")
