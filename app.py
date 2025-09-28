@@ -95,7 +95,7 @@ lang_dict = {
 # -------------------------------
 # Sidebar Options
 # -------------------------------
-selected_lang = st.sidebar.selectbox("Select Language / ಭಾಷೆ", list(lang_dict.keys()))
+selected_lang = st.sidebar.selectbox("Select preferred Language", list(lang_dict.keys()))
 t = lang_dict[selected_lang]
 
 dark_mode = st.sidebar.checkbox("Dark Mode", value=True)
