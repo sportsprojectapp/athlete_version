@@ -129,13 +129,13 @@ st.markdown(f'''
 ''', unsafe_allow_html=True)
 
 # -------------------------------
-# Sample Athlete Data
+# Sample Athlete Data with GitHub Images
 # -------------------------------
 sports_data = [
     {"sport": s, "score": 80+i*2, "highest": 90+i, "attempts": i+3,
      "last_feedback":"Some issue detected", 
      "color": f"#FF{hex(20+i*20)[2:]}33",
-     "image":"https://via.placeholder.com/130?text="+s,
+     "image": f"https://raw.githubusercontent.com/<username>/<repo>/main/{s.replace(' ','').lower()}.jpg",
      "rules":["Follow camera rules","Wear proper attire","Full body visible"]}
     for i,s in enumerate(["Sprinting","Long Jump","High Jump","Shot Put","Discus Throw","Javelin Throw","Hurdles","Relay Race","Pole Vault","Marathon"])
 ]
@@ -146,7 +146,7 @@ sports_data = [
 st.markdown(f"<h1 style='color:{text_color}'>{t['dashboard_title']}</h1>", unsafe_allow_html=True)
 profile_col1, profile_col2 = st.columns([1,3])
 with profile_col1:
-    st.image("https://randomuser.me/api/portraits/men/1.jpg", width=120)
+    st.image(f"https://raw.githubusercontent.com/<username>/<repo>/main/athlete.jpg", width=120)
 with profile_col2:
     st.markdown(f"**{t['profile_name']}:** Athlete 1")
     st.markdown(f"**{t['profile_age']}:** 20")
@@ -179,3 +179,4 @@ for sport in sports_data:
         recorded_video = st.camera_input(t['record_upload_video'], key=sport['sport'])
         if recorded_video:
             st.video(recorded_video)
+
