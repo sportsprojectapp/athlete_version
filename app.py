@@ -135,7 +135,7 @@ sports_data = [
     {"sport": s, "score": 80+i*2, "highest": 90+i, "attempts": i+3,
      "last_feedback":"Some issue detected", 
      "color": f"#FF{hex(20+i*20)[2:]}33",
-     "image": f"https://raw.githubusercontent.com/<username>/<repo>/main/{s.replace(' ','').lower()}.jpg",
+     "image": f"https://raw.githubusercontent.com/sportsprojectapp/athlete_version/main/{s.replace(' ','').lower()}.jpg",
      "rules":["Follow camera rules","Wear proper attire","Full body visible"]}
     for i,s in enumerate(["Sprinting","Long Jump","High Jump","Shot Put","Discus Throw","Javelin Throw","Hurdles","Relay Race","Pole Vault","Marathon"])
 ]
