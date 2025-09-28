@@ -34,7 +34,7 @@ lang_dict = {
         "keep_pushing": "Keep pushing! You can do it 💪",
         "answer_first": "Answer the questions first!"
     },
-    # Add Malayalam/Tamil/Telugu similarly with translated keys...
+    # You can add Malayalam, Tamil, Telugu translations similarly
 }
 
 # -------------------------------
@@ -69,12 +69,6 @@ st.markdown(f"""
         object-fit: cover;
         border-radius: 10px;
         margin-right: 15px;
-    }}
-    .rules-box {{
-        background-color: rgba(0,0,0,0.2);
-        padding: 10px;
-        border-radius: 10px;
-        margin-top: 10px;
     }}
 </style>
 """, unsafe_allow_html=True)
@@ -121,6 +115,58 @@ st.markdown("---")
 # Sport Banners
 # -------------------------------
 st.subheader(t['select_sport'])
-for sport in s
+for sport in sports_data:   # ✅ fixed for loop with colon
+    with st.expander(f"{sport['sport']} 🏆"):
+        # Banner with image and details
+        banner_html = f"""
+        <div class="sport-banner" style="background-color:{sport['color']};">
+            <img src="{sport['image']}" class="sport-image">
+            <div>
+                <b>{sport['sport']}</b><br>
+                {t['latest_score']}: {sport['score']} | {t['highest_score']}: {sport['highest']} | {t['attempts']}: {sport['attempts']}<br>
+                {t['last_feedback']}: {sport['last_feedback']}
+            </div>
+        </div>
+        """
+        st.markdown(banner_html, unsafe_allow_html=True)
+
+        # Recording rules
+        st.markdown(f"**{t['record_rules']}:**")
+        for rule in sport['rules']:
+            st.markdown(f"- {rule}")
+
+        # Camera recording inside the app
+        recorded_video = st.camera_input(t['record_upload_video'], key=sport['sport'])
+        if recorded_video:
+            st.video(recorded_video)
+
+# -------------------------------
+# Motivation Test
+# -------------------------------
+st.markdown("---")
+st.subheader(t['motivation_test'])
+questions = [t['question1'], t['question2'], t['question3']]
+responses = []
+
+for idx, q in enumerate(questions):
+    st.markdown(f"**{q}**")
+    col1, col2, col3 = st.columns(3)
+    if col1.button(t['yes'], key=f"{idx}-yes"):
+        responses.append(1)
+    if col2.button(t['maybe'], key=f"{idx}-maybe"):
+        responses.append(0)
+    if col3.button(t['no'], key=f"{idx}-no"):
+        responses.append(-1)
+
+if st.button(t['show_score']):
+    if responses:
+        score = sum(responses)
+        if score > 0:
+            st.success(t['motivated'])
+        else:
+            st.info(t['keep_pushing'])
+    else:
+        st.warning(t['answer_first'])
+
 
 
